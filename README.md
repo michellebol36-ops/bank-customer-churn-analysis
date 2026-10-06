@@ -5,7 +5,8 @@ This project analyzes a sample bank customer dataset to understand which custome
 Do customers with low account balances churn more than customers with higher balances?
 
 ## Dataset
-Bank_Churn.csv
+[Bank_Churn.csv](Bank_Churn.csv)
 
 ## HTML report
-Bank_Churn_Analysiss.html
+[View my R Markdown analysis](Bank_Churn_Analysiss.html)
+
