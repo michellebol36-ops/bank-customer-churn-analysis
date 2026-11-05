@@ -27,7 +27,7 @@ svg.append("text")
   .attr("x", 20)
   .attr("y", 55)
   .attr("font-size", "13px")
-  .text("Circles represent Customer Balance | Rectangles represent Customer Age");
+  .text("Circles represent Customer Balance | Rectangles = Customer Age");
 
 // Circles represent customer balances
 svg.selectAll("circle")
