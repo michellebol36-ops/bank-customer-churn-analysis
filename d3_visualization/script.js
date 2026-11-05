@@ -27,7 +27,7 @@ svg.append("text")
   .attr("x", 20)
   .attr("y", 55)
   .attr("font-size", "13px")
-  .text("Circles represent Customer Balance | Rectangles = Customer Age");
+  .text("Circles represent Customer Balance | Rectangles represent Customer Age");
 
 // Circles represent customer balances
 svg.selectAll("circle")
@@ -46,13 +46,13 @@ svg.selectAll("rect")
   .data(customers)
   .join("rect")
   .attr("x", (d, i) => i * 35 + 15)
-  .attr("y", 175)
+  .attr("y", 145)
   .attr("width", 20)
-  .attr("height", d => (+d.Age) * 2)
+  .attr("height", 0)
   .attr("fill", "orange")
   .transition()
   .duration(1000)
-  .attr("y", d => 175 - (+d.Age) * 2)
+  .attr("height", d => (+d.Age) * 1.5)
   .attr("fill", "steelblue");
 
 // Show customer ages below the rectangles
