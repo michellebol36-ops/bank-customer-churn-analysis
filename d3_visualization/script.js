@@ -3,76 +3,77 @@ import { csv } from 'https://esm.sh/d3-fetch';
 import { select } from 'https://esm.sh/d3-selection';
 import 'https://esm.sh/d3-transition';
 
-// Load bank customer data
-const data = await csv("https://michellebol36-ops.github.io/bank-customer-churn-analysis/Bank_Churn.csv");
+// Load the bank customer data
+const data = await csv(
+  "https://michellebol36-ops.github.io/bank-customer-churn-analysis/Bank_Churn.csv"
+);
 
 // Use the first 20 customers
 const customers = data.slice(0, 20);
 
-// Select SVG
+// Select the SVG
 const svg = select("svg");
 
-// Add title
+// Title
 svg.append("text")
   .attr("x", 20)
-  .attr("y", 25)
+  .attr("y", 30)
   .attr("font-size", "20px")
   .attr("font-weight", "bold")
-  .attr("fill", "black")
   .text("Bank Customer Churn Visualization");
 
-// Add description
+// Description
 svg.append("text")
   .attr("x", 20)
-  .attr("y", 48)
-  .attr("font-size", "12px")
-  .text("Circles show customer balances | Rectangles show customer ages");
+  .attr("y", 55)
+  .attr("font-size", "13px")
+  .text("Circles = Customer Balance | Rectangles = Customer Age");
 
-// Add circles using Balance
+// Circles represent customer balances
 svg.selectAll("circle")
   .data(customers)
   .join("circle")
   .attr("cx", (d, i) => i * 35 + 25)
-  .attr("cy", 100)
+  .attr("cy", 105)
   .attr("r", d => (+d.Balance / 15000) + 4)
   .attr("fill", "steelblue")
   .transition()
   .duration(1000)
   .attr("fill", "orange");
 
-// Add rectangles using Age
+// Rectangles represent customer ages
 svg.selectAll("rect")
   .data(customers)
   .join("rect")
   .attr("x", (d, i) => i * 35 + 15)
-  .attr("y", 160)
+  .attr("y", 175)
   .attr("width", 20)
-  .attr("height", d => +d.Age)
+  .attr("height", d => (+d.Age) * 2)
   .attr("fill", "orange")
   .transition()
   .duration(1000)
-  .attr("y", d => 160 - d.Age)
+  .attr("y", d => 175 - (+d.Age) * 2)
   .attr("fill", "steelblue");
 
-// Add customer age numbers
+// Show customer ages below the rectangles
 svg.selectAll("text.age")
   .data(customers)
   .join("text")
   .attr("class", "age")
   .attr("x", (d, i) => i * 35 + 25)
-  .attr("y", 225)
+  .attr("y", 195)
   .attr("text-anchor", "middle")
-  .attr("font-size", "10px")
+  .attr("font-size", "11px")
   .attr("fill", "black")
   .text(" ")
   .transition()
   .duration(1000)
   .text(d => d.Age);
 
-// Extra credit: D3 transitions animate the shapes' colors and positions
+// Extra credit note
 svg.append("text")
   .attr("x", 20)
   .attr("y", 280)
-  .attr("font-size", "12px")
+  .attr("font-size", "13px")
   .attr("fill", "green")
-  .text("Extra Credit: Used D3 transitions to animate color and position.");
+  .text("Extra Credit: D3 transitions animate color, position, and text.");
