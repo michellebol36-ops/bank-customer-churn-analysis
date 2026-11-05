@@ -27,7 +27,7 @@ svg.append("text")
   .attr("x", 20)
   .attr("y", 55)
   .attr("font-size", "13px")
-  .text("Circles = Customer Balance | Rectangles = Customer Age");
+  .text("Circles represent Customer Balance | Rectangles represent Customer Age");
 
 // Circles represent customer balances
 svg.selectAll("circle")
@@ -70,10 +70,10 @@ svg.selectAll("text.age")
   .duration(1000)
   .text(d => d.Age);
 
-// Extra credit note
+// Extra credit 
 svg.append("text")
   .attr("x", 20)
   .attr("y", 280)
   .attr("font-size", "13px")
   .attr("fill", "green")
-  .text("Extra Credit: D3 transitions animate color, position, and text.");
+  .text("Did Extra Credit: D3 transitions to animate color, position, and text.");
