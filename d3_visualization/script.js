@@ -45,13 +45,13 @@ svg.selectAll("rect")
   .data(customers)
   .join("rect")
   .attr("x", (d, i) => i * 35 + 15)
-  .attr("y", 200)
+  .attr("y", 160)
   .attr("width", 20)
   .attr("height", d => +d.Age)
   .attr("fill", "orange")
   .transition()
   .duration(1000)
-  .attr("y", d => 200 - d.Age)
+  .attr("y", d => 160 - d.Age)
   .attr("fill", "steelblue");
 
 // Add customer age numbers
