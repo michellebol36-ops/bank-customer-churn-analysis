@@ -69,11 +69,3 @@ svg.selectAll("text.age")
   .transition()
   .duration(1000)
   .text(d => d.Age);
-
-// Extra credit 
-svg.append("text")
-  .attr("x", 20)
-  .attr("y", 280)
-  .attr("font-size", "13px")
-  .attr("fill", "green")
-  .text("Did Extra Credit: D3 transitions to animate color, position, and text.");
