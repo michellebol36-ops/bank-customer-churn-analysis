@@ -10,3 +10,6 @@ Do customers with low account balances churn more than customers with higher bal
 ## HTML report
 [View my R Markdown analysis](Bank_Churn_Analysiss.html)
 
+## D3 Visualization
+[ D3 page ](d3_visualization/)
+
